@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Video</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="column">
+        <div class="col-lg-12">
+            <h3 class="mt-2">Video</h3>
+            <div class="d-flex justify-content-center">
+                <img src="{{ url_for('video_feed') }}" id="imagen" width="80%">
+            </div>
+            <div class="row d-flex justify-content-around p-1">
+                <div class="col-8 col-md-3 btn btn-primary m-1"><a href="/video">Ver de nuevo</a></div>
+                <div class="col-8 col-md-3 btn btn-primary m-1"><a href="/">Subir otro video</a></div>
+                <div style="display:none;" class="col-8 col-md-3 btn btn-primary m-1" id="resumen"><a href="/resumen">Ver resumen</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+a:hover{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-primary:hover{
+    background-color: rgb(0, 0, 112);
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+    var duracion= '{{duracion}}'*2.5;
+
+    console.log(duracion+" segundos")
+    
+
+
+    setTimeout(function() {
+        document.getElementById("resumen").style.display = "block";
+    },duracion*1000);
+
+    
+</script>
+
+</body>
+</html>
